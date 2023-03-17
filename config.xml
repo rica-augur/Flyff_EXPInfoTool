@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ArrayOfAppConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AppConfig>
+    <Name>John</Name>
+    <Age>30</Age>
+  </AppConfig>
+  <AppConfig>
+    <Name>Jane</Name>
+    <Age>25</Age>
+  </AppConfig>
+</ArrayOfAppConfig>
