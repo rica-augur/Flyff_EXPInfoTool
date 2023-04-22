@@ -38,3 +38,4 @@ if exist "%folderPath%" (
 
 start "" "%file%"
 :fin
+pause
