@@ -2,10 +2,9 @@
 setlocal
 
 set retry=10
-set file=EXPInfo.exe
+set file="EXPInfo.exe"
 set folderPath="TEMP"
 
-echo プログラム終了を待ちます
 if exist %file% (
     if exist %folderPath% (
         :retry
@@ -24,13 +23,11 @@ if exist %file% (
 )
 
 :next
-echo "新しいモジュールを展開します"
 xcopy "TEMP\Flyff_EXPInfoTool-main" "." /s /e /d /y
 
 del ".gitattributes"
 del ".gitignore"
 
-echo 使用したファイルを削除します
 del TEMP.ZIP
 if exist "%folderPath%" (
     rmdir /s /q "%folderPath%"
