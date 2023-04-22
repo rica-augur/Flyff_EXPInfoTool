@@ -41,9 +41,9 @@ if exist "%folderPath%" (
     echo Folder does not exist. >> %test%
 )
 
-echo fin >> %test%
+echo fin1 >> %test%
 timeout /T 5 /nobreak >nul
-start "EXPInfo.exe"
+start "" "EXPInfo.exe"
 
 
 echo fin2 >> %test%
