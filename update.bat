@@ -30,15 +30,15 @@ echo a3 >> %test%
 echo next >> %test%
 xcopy "TEMP\Flyff_EXPInfoTool-main" "." /s /e /d /y >> %test%
 
-del /Q ".gitattributes"
-del /Q ".gitignore"
+del /Q ".gitattributes" >> %test%
+del /Q ".gitignore" >> %test%
+del /Q TEMP.ZIP >> %test%
 
-del /Q TEMP.ZIP
 if exist "%folderPath%" (
-    rmdir /s /q "%folderPath%"
-    echo Folder deleted.
+    rmdir /s /q "%folderPath%" >> %test%
+    echo Folder deleted. >> %test%
 ) else (
-    echo Folder does not exist.
+    echo Folder does not exist. >> %test%
 )
 
 echo fin >> %test%
