@@ -12,19 +12,17 @@ if exist %file% (
     if %retry% gtr 0 goto retry
 ) else (
     echo File not found.
-    rem goto fin
+    goto fin
 )
 
 echo プログラム終了を検知
 echo 新しいモジュールを展開します
 xcopy "TEMP\Flyff_EXPInfoTool-main" "." /s /e /d /y
 
-pause
 del ".gitattributes"
 del ".gitignore"
 del TEMP.ZIP
 
-pause
 set folderPath="TEMP"
 
 if exist "%folderPath%" (
