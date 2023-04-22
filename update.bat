@@ -1,10 +1,12 @@
 @echo off
 setlocal
 
+set test=test.txt
 set retry=10
 set file="EXPInfo.exe"
 set folderPath="TEMP"
 
+echo a >> %test%
 if exist %file% (
     if exist %folderPath% (
         :retry
@@ -16,13 +18,16 @@ if exist %file% (
     ) else (
         echo File not found.
         goto fin
+echo a2 >> %test%
     )
 ) else (
     echo File not found.
     goto fin
+echo a3 >> %test%
 )
 
 :next
+echo next >> %test%
 xcopy "TEMP\Flyff_EXPInfoTool-main" "." /s /e /d /y
 
 del ".gitattributes"
@@ -36,11 +41,12 @@ if exist "%folderPath%" (
     echo Folder does not exist.
 )
 
-set test=test.txt
-echo fin > %test%
+echo fin >> %test%
 timeout /T 5 /nobreak >nul
 start "" "%file%"
 
 
-echo fin2 > %test%
+echo fin2 >> %test%
 :fin
+
+echo fin3 >> %test%
