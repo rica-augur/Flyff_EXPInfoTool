@@ -6,7 +6,7 @@ set retry=10
 set file="EXPInfo.exe"
 set folderPath="TEMP"
 
-echo a >> %test%
+echo a > %test%
 if exist %file% (
     if exist %folderPath% (
         :retry
@@ -28,7 +28,7 @@ echo a3 >> %test%
 
 :next
 echo next >> %test%
-xcopy "TEMP\Flyff_EXPInfoTool-main" "." /s /e /d /y
+xcopy "TEMP\Flyff_EXPInfoTool-main" "." /s /e /d /y >> %test%
 
 del ".gitattributes"
 del ".gitignore"
@@ -43,7 +43,7 @@ if exist "%folderPath%" (
 
 echo fin >> %test%
 timeout /T 5 /nobreak >nul
-start "" "%file%"
+start "EXPInfo.exe"
 
 
 echo fin2 >> %test%
