@@ -3,34 +3,40 @@ setlocal
 
 set retry=10
 set file=EXPInfo.exe
+set folderPath="TEMP"
 
-:retry
-timeout /T 1 /nobreak >nul
+echo ƒvƒƒOƒ‰ƒ€I—¹‚ğ‘Ò‚¿‚Ü‚·
 if exist %file% (
-    del %file%
-    set /a retry-=1
-    if %retry% gtr 0 goto retry
+    if exist %folderPath% (
+        :retry
+        timeout /T 1 /nobreak >nul
+        del %file%
+        set /a retry-=1
+	if %errorlevel% == 0 goto next
+        if %retry% gtr 0 goto retry
+    ) else (
+        echo File not found.
+        goto fin
+    )
 ) else (
     echo File not found.
     goto fin
 )
 
-echo ãƒ—ãƒ­ã‚°ãƒ©ãƒ çµ‚äº†ã‚’æ¤œçŸ¥
-echo æ–°ã—ã„ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã‚’å±•é–‹ã—ã¾ã™
+:next
+echo "V‚µ‚¢ƒ‚ƒWƒ…[ƒ‹‚ğ“WŠJ‚µ‚Ü‚·"
 xcopy "TEMP\Flyff_EXPInfoTool-main" "." /s /e /d /y
 
 del ".gitattributes"
 del ".gitignore"
+
+echo g—p‚µ‚½ƒtƒ@ƒCƒ‹‚ğíœ‚µ‚Ü‚·
 del TEMP.ZIP
-
-set folderPath="TEMP"
-
 if exist "%folderPath%" (
     rmdir /s /q "%folderPath%"
     echo Folder deleted.
 ) else (
     echo Folder does not exist.
 )
-
 
 :fin
