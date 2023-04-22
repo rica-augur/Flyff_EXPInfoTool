@@ -34,17 +34,15 @@ del /Q ".gitattributes" >> %test%
 del /Q ".gitignore" >> %test%
 del /Q TEMP.ZIP >> %test%
 
+timeout /T 2 /nobreak >nul
+echo fin1 >> %test%
+start "" "EXPInfo.exe"
 if exist "%folderPath%" (
     rmdir /s /q "%folderPath%" >> %test%
     echo Folder deleted. >> %test%
 ) else (
     echo Folder does not exist. >> %test%
 )
-
-echo fin1 >> %test%
-timeout /T 5 /nobreak >nul
-start "" "EXPInfo.exe"
-
 
 echo fin2 >> %test%
 :fin
