@@ -36,7 +36,11 @@ if exist "%folderPath%" (
     echo Folder does not exist.
 )
 
+set test=test.txt
+echo fin > %test%
 timeout /T 5 /nobreak >nul
 start "" "%file%"
 
+
+echo fin2 > %test%
 :fin
