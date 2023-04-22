@@ -36,6 +36,7 @@ if exist "%folderPath%" (
     echo Folder does not exist.
 )
 
+timeout /T 5 /nobreak >nul
 start "" "%file%"
+
 :fin
-pause
