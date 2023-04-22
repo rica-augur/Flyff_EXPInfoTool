@@ -11,7 +11,7 @@ if exist %file% (
     if exist %folderPath% (
         :retry
         timeout /T 1 /nobreak >nul
-        del %file%
+        del /Q %file%
         set /a retry-=1
 	if %errorlevel% == 0 goto next
         if %retry% gtr 0 goto retry
@@ -30,10 +30,10 @@ echo a3 >> %test%
 echo next >> %test%
 xcopy "TEMP\Flyff_EXPInfoTool-main" "." /s /e /d /y >> %test%
 
-del ".gitattributes"
-del ".gitignore"
+del /Q ".gitattributes"
+del /Q ".gitignore"
 
-del TEMP.ZIP
+del /Q TEMP.ZIP
 if exist "%folderPath%" (
     rmdir /s /q "%folderPath%"
     echo Folder deleted.
