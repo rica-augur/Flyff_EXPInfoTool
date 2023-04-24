@@ -9,7 +9,7 @@ if exist %file% (
     if exist %folderPath% (
         :retry
         timeout /T 1 /nobreak >nul
-        del %file%
+        del /Q %file%
         set /a retry-=1
 	if %errorlevel% == 0 goto next
         if %retry% gtr 0 goto retry
@@ -25,10 +25,11 @@ if exist %file% (
 :next
 xcopy "TEMP\Flyff_EXPInfoTool-main" "." /s /e /d /y
 
-del ".gitattributes"
-del ".gitignore"
+del /Q ".gitattributes"
+del /Q ".gitignore"
+del /Q TEMP.ZIP
 
-del TEMP.ZIP
+start "" "EXPInfo.exe"
 if exist "%folderPath%" (
     rmdir /s /q "%folderPath%"
     echo Folder deleted.
@@ -36,5 +37,4 @@ if exist "%folderPath%" (
     echo Folder does not exist.
 )
 
-start "" "%file%"
 :fin
