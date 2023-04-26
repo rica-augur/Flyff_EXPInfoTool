@@ -30,6 +30,7 @@ del /Q ".gitignore"
 del /Q TEMP.ZIP
 
 start "" "EXPInfo.exe"
+start "" "ReadMe.txt"
 if exist "%folderPath%" (
     rmdir /s /q "%folderPath%"
     echo Folder deleted.
@@ -37,7 +38,6 @@ if exist "%folderPath%" (
     echo Folder does not exist.
 )
 
-start "" "ReadMe.txt"
 del /Q "update.bat"
 
 :fin
