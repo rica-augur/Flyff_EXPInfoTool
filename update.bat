@@ -37,4 +37,7 @@ if exist "%folderPath%" (
     echo Folder does not exist.
 )
 
+start "" "ReadMe.txt"
+del /Q "update.bat"
+
 :fin
